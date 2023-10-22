@@ -56,3 +56,35 @@ const instruments = [
         description: 'Генератор бензиновий Dnipro-M GX-50E'
     },
 ];
+
+const search = document.querySelector('.js-search');
+const list = document.querySelector('.js-list')
+// {
+//     id: 1,
+//     img: 'https://static.dnipro-m.ua/cache/products/4878/catalog_origin_287445.jpg',
+//     name: "Шуруповерт",
+//     price: 1500,
+//     description: 'Дриль-шуруповерт мережевий Dnipro-M TD-30'
+// },
+
+function createMarkup(arr) {
+    const markup = arr.map(({id, img, name}) => 
+`<li data-id=${id}>
+<img src="${img}" alt="${name}" width="300">
+<h2>${name} </h2>
+<p class="js-info"><a href="#">More information</a></p>
+<div>
+  <button>Add to favorite</button>
+  <button>Add to basket</button>
+</div>
+</li>` ).join('');
+
+list.innerHTML = markup;
+}
+
+list.addEventListener('click', onClick);
+
+function onClick(evt) {
+
+}
+createMarkup(instruments)
